@@ -5,7 +5,7 @@ This TTS service for Mycroft requires a subscription to Microsoft Azure and the 
 The free plan is more than capable to handle domestic usage (5 million character per month, or 0.5 million with neural tts)
 You can choose your voice here in the column "voice name" (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-to-speech)
 
-New configuration (only the api_key is mandatory, other are defaulted as in the following) :
+Configuration parameters (only the api_key is mandatory, other are defaulted as in the following) :
 
 ```json
 "tts": {
@@ -17,6 +17,10 @@ New configuration (only the api_key is mandatory, other are defaulted as in the 
     }
 }
 ```
+
+##### Installation
+
+`mycroft-pip install git+https://github.com/dalgwen/mycroft-tts-plugin-azure.git`
 
 ##### LICENSE :
 

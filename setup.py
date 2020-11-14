@@ -5,7 +5,7 @@ from setuptools import setup
 with open(join(dirname(abspath(__file__)), 'requirements.txt')) as f:
     requirements = f.readlines()
 
-PLUGIN_ENTRY_POINT = 'azure_tts_plug = mycroft_tts_plugin_azure:AzureTTSPlugin'
+PLUGIN_ENTRY_POINT = 'azure_tts = mycroft_tts_plugin_azure:AzureTTSPlugin'
 setup(
     name='mycroft-tts-plugin-azure',
     version='0.1',
