@@ -10,7 +10,7 @@ Configuration parameters (only the api_key is mandatory, other are defaulted as 
 ```json
 "tts": {
     "module": "azure_tts",
-    "azure": {
+    "azure_tts": {
         "api_key": "insert_your_key_here",
         "voice": "en-US-JennyNeural",  # optional, default "en-US-Guy24kRUS"
         "region": "westus" # optional, if your region is westus
