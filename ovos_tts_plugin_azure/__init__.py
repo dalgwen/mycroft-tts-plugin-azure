@@ -13,13 +13,12 @@
 # limitations under the License.
 #
 
-from mycroft.tts import TTS, TTSValidator
-from mycroft.util.log import LOG
-
 from datetime import datetime, timedelta
-from mycroft.configuration import Configuration
-import requests
 from xml.etree import ElementTree
+
+import requests
+from ovos_plugin_manager.templates.tts import TTS, TTSValidator
+from ovos_utils.log import LOG
 
 
 class AzureTTSPlugin(TTS):
@@ -38,13 +37,14 @@ class AzureTTSPlugin(TTS):
     The TTS endpoint requires an access token. This method exchanges your
     subscription key for an access token that is valid for ten minutes.
     '''
+
     def renew_token(self):
         now = datetime.now()
-        if self.last_renew and\
+        if self.last_renew and \
                 now - timedelta(minutes=9) <= self.last_renew <= now:
             return
 
-        constructed_url = "https://" + self.region +\
+        constructed_url = "https://" + self.region + \
                           ".api.cognitive.microsoft.com/sts/v1.0/issueToken"
         headers = {
             'Ocp-Apim-Subscription-Key': self.api_key
@@ -55,13 +55,13 @@ class AzureTTSPlugin(TTS):
 
     def get_tts(self, sentence, wav_file):
         self.renew_token()
-        constructed_url = "https://" + self.region +\
+        constructed_url = "https://" + self.region + \
                           ".tts.speech.microsoft.com/cognitiveservices/v1"
         headers = {
             'Authorization': 'Bearer ' + self.access_token,
             'Content-Type': 'application/ssml+xml',
             'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
-            'User-Agent': 'mycroft'
+            'User-Agent': 'ovos-plugin-manager'
         }
         xml_body = ElementTree.Element('speak', version='1.0')
         xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
