@@ -3,7 +3,7 @@
 This plugin was oiginally for Mycroft.
 Due to the Mycroft demise, and thank to JarbasAI, this plugin is now converted for ovos.
 
-Please now follow [the ovos fork]([https://link-url-here.org](https://github.com/OpenVoiceOS/ovos-tts-plugin-azure) for update.
+Please now follow [the ovos fork](https://link-url-here.org](https://github.com/OpenVoiceOS/ovos-tts-plugin-azure) for update.
 
 ### ovos-tts-plugin-azure
 
